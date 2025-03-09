@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--<a 
+    ============================================
+       Developed by : https://github.com/berru-g/
+       Project : wallet 25
+       Date : 23/12/2024
+       Version : 1.1
+       Contact : https://savoir-relatif-et-absolu.netlify.app/#espace-commentaire
+       Licence : The MIT License (MIT)
+       Copyright (c) 2024 Berru
+    ============================================
+
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0x3u$t1s_wallet</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="hamburger-menu">
+      <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=808080">
+    </div>
+
+    <button id="toggle-dark-mode">D/L</button>
+
+  </header>
+  <div id="crypto-prices-container">
+    <div class="address-container">
+
+      <button class="copy-button" data-target="sol-address">SOL <span class="address"
+          id="sol-address">D6khWoqvc2zX46HVtSZcNrPumnPLPM72SnSuDhBrZeTC</span></button>
+      <button class="copy-button" data-target="eth-address">ETH <span class="address"
+          id="eth-address">0x026e9B43BAB0881FD55625ac1dB6dC418162eDAd</span></button>
+    </div>
+    <!--Affichage et mise en page d'info depuis un fichier json via fetch-->
+    <div id="crypto-prices"></div>
+    <br>
+    <script defer src="https://www.livecoinwatch.com/static/lcw-widget.js"></script>
+    <div class="livecoinwatch-widget-5" lcw-base="USDC" lcw-color-tx="#999999" lcw-marquee-1="coins"
+      lcw-marquee-2="movers" lcw-marquee-items="10"></div>
+    <br>
+    <h3><a href="../index.html">↩️</a></h3>
+    <div id="total"></div>
+  </div>
+  <br>
+  <footer>
+    <h5 style="margin-bottom:40px;">crypto-free-tools &copy; 2025 by <a
+            href="https://github.com/berru-g/">berru-g</a>
+    </h5>
+</footer>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script>
+    // Ajout d'un événement pour chaque bouton Copier
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const addressElement = document.getElementById(targetId);
+        const address = addressElement.textContent;
+
+        // Crée un élément temporaire pour copier le texte
+        const tempInput = document.createElement('input');
+        tempInput.value = address;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        // Optionnel : Feedback visuel
+        Toastify({
+          text: "✅ Adresse copiée !",
+          duration: 2000,
+          gravity: "center",
+          position: "center",
+          backgroundColor: "white",
+
+        }).showToast();
+      });
+    });
+  </script>
+
+  <nav class="navbar">
+    <a href="../index.html"><span><i class="fa-solid fa-house"></i></span>home</a>
+    <a href="../fibonacci/index.html"><span><i class="fa-solid fa-chart-line"></i></span>fibo</a>
+    <a href="../chart-comparator/index.html"><span><i class="fa-solid fa-chart-area"></i></span>chart</a>
+    <a href="../indicateur-technique/index.html"><span><i class="fa-solid fa-chart-gantt"></i></span>tech</a>
+    <a href="index.html"><span><i class="fa-solid fa-wallet"></i></span>wallet</a>
+</nav>
+
+</body>
+
+</html>
