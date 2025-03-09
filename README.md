@@ -13,3 +13,5 @@
    - Fork repository in C:\MAMP\htdocs
    - Start MAMP & clique 👇
    - [Localhost]( localhost/crypto-tool-app/)
+   - <a href="http://localhost/crypto-tool-app/" rel="noopener"
+                            target="_blank">localhost/crypto-tool-app</a>
